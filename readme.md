@@ -28,15 +28,15 @@ This project is an automation bot designed to monitor the latest videos from spe
 - Complete OAuth 2.0 authentication and store the GOOGLE_BLOGGER_TOKEN in the database.
 - Run the script to initiate the automation pipeline.
 
-summary-tube/
-├── app.py                # [UI] Streamlit interface (user interaction)
-├── main.py               # [Controller] Workflow management and scheduling
-├── core/
-│   ├── __init__.py
-│   ├── youtube_api.py    # YouTube integration (video info, transcript extraction)
-│   ├── gemini_api.py     # AI summarization logic
-│   ├── blog_api.py       # Blog posting integration
-│   └── telegram_api.py   # Telegram notification service
-└── utils/
-    ├── __init__.py
-    └── db.py             # Database connectivity and helpers
+summary-tube/  
+├── app.py                # [UI] Streamlit interface (user interaction)  
+├── main.py               # [Controller] Workflow management and scheduling  
+├── core/  
+│   ├── __init__.py  
+│   ├── youtube_api.py    # YouTube integration (video info, transcript extraction)  
+│   ├── gemini_api.py     # AI summarization logic  
+│   ├── blog_api.py       # Blog posting integration  
+│   └── telegram_api.py   # Telegram notification service  
+└── utils/  
+    ├── __init__.py  
+    └── db.py             # Database connectivity and helpers  
