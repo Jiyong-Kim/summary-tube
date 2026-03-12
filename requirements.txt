@@ -1,0 +1,14 @@
+# YouTube & Google APIs
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+youtube-transcript-api
+
+# Database
+supabase
+
+# Configuration & Utilities
+python-dotenv
+
+# Web UI (If using Streamlit)
+streamlit
