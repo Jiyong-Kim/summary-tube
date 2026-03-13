@@ -35,13 +35,13 @@ if st.button("작업 시작"):
    
     for url in video_urls:
         video_id = extract_id(url)
-        if video_id and db.is_video_unprocessed(video_id):
+        if not db.is_video_exists(video_id) or db.is_video_unprocessed(video_id):
             url_list.append(url)
         else:
             skip_cnt += 1
 
     if not url_list:
-        st.warning("처리할 새로운 영상이 없습니다.")
+        st.warning(f"처리할 새로운 영상이 없습니다.{skip_cnt}")
     else:
         with st.spinner("영상 요약 및 게시 중... (배치 처리)"):
             batch_results = process_in_batches(url_list, batch_size=3)
