@@ -5,4 +5,6 @@ pandas
 google-generativeai
 python-telegram-bot
 youtube-transcript-api
-requests 
+requests
+google-auth-oauthlib
+google-api-python-client
