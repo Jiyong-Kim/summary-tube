@@ -25,9 +25,7 @@ def extract_id(url):
 def process_single_video(url):
     video_id = extract_id(url)
     title, summary = None, None 
-    
-    # or not db.is_video_unprocessed(video_id) 부분 삭제 가능.
-    if not video_id or not db.is_video_unprocessed(video_id):
+    if db.is_video_exists(video_id) and not db.is_video_unprocessed(video_id):
         return False
     try:
         script = get_transcript(video_id)
