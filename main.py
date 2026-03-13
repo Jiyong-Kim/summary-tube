@@ -26,6 +26,7 @@ def process_single_video(url):
     video_id = extract_id(url)
     title, summary = None, None 
     
+    # or not db.is_video_unprocessed(video_id) 부분 삭제 가능.
     if not video_id or not db.is_video_unprocessed(video_id):
         return False
     try:
@@ -43,8 +44,9 @@ def process_single_video(url):
             title = "YouTube 요약 (제목 없음)"
             content = summary
 
+        desc = f"스크립트길이 {len(script)}자, 요약길이 {len(summary)}자"
         result = post_to_blog(title, content, url)
-        db.upsert_videos(video_id=video_id, is_posted=result, title=title, should_retry=False)
+        db.upsert_videos(video_id=video_id, is_posted=result, title=title, should_retry=False, description=desc)
         return result
     except Exception as e:
             db.upsert_videos(video_id=video_id, is_posted=False, error_message=str(e), title=title, should_retry=False)

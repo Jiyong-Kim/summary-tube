@@ -19,7 +19,6 @@ def summarize_with_gemini(text: str) -> str | None:
     #     text = text[:MAX_INPUT_LENGTH]
 
     logging.info(f"스크립트 길이({len(text)}자)")
-
     try:
         api_key = get_code("GEMINI_API_KEY")
         if not api_key:

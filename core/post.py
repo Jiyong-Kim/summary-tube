@@ -60,7 +60,8 @@ def post_to_blog(title, content, source_url):
         service = get_blog_service()
         
         # DB에서 블로그 ID 조회, 없으면 기본값 사용
-        blog_id = db.get_code("BLOGGER_BLOG_ID") 
+        blog_id = db.get_code("GOOGLE_BLOGGER_ID") 
+        
         
         formatted_content = f"{content}<br><hr><p>출처: <a href='{source_url}'>{source_url}</a></p>"
         

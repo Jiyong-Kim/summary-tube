@@ -8,16 +8,15 @@ from utils import db
 
 st.title("🚀 Summary Youtube")
 
-# --- 상태 초기화 ---
-if 'url_text' not in st.session_state:
-    st.session_state.url_text = ""
+# 상태 초기화
+if 'url_data' not in st.session_state:
+    st.session_state.url_data = ""
 
 # --- UI 레이아웃 ---
 input_urls = st.text_area(
     label="유튜브 URL 입력", 
-    value=st.session_state.url_text,
-    height=150,
-    key="input_area"
+    value=st.session_state.get('url_text', ""),
+    height=150
 )
 
 if st.button("구독자 최신 영상 수집"):
@@ -25,6 +24,7 @@ if st.button("구독자 최신 영상 수집"):
     # 기존 입력값과 합쳐서 중복 제거
     current_list = input_urls.splitlines()
     combined = list(dict.fromkeys(today_list + current_list))
+    
     st.session_state.url_text = "\n".join([url for url in combined if url.strip()])
     st.rerun()
 
@@ -56,6 +56,6 @@ if st.button("작업 시작"):
             asyncio.run(send_telegram_alert(msg))
             st.success(msg)
 
-if st.button("메인테스트"):
-    main()
-    st.rerun()
+# if st.button("메인테스트"):
+#     main()
+#     st.rerun()

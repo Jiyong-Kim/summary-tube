@@ -42,7 +42,9 @@ def get_videos_from_list():
                 if item["snippet"]["publishedAt"][:10] >= yesterday:
                     v_id = item["snippet"]["resourceId"]["videoId"]
                     video_urls.append(f"https://www.youtube.com/watch?v={v_id}")
-                    if not db.is_video(v_id):
+                    print ( "item" + channel_id )
+                    if not db.is_video_exists(v_id):
+                        print ( "is_video_exists" + v_id )
                         db.upsert_videos(video_id=v_id, channel_id=channel_id, is_posted=False, should_retry=True)
                     
         except Exception as e:

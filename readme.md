@@ -32,11 +32,11 @@ summary-tube/
 ├── app.py                # [UI] Streamlit interface (user interaction)  
 ├── main.py               # [Controller] Workflow management and scheduling  
 ├── core/  
-│   ├── __init__.py  
-│   ├── youtube_api.py    # YouTube integration (video info, transcript extraction)  
-│   ├── gemini_api.py     # AI summarization logic  
-│   ├── blog_api.py       # Blog posting integration  
-│   └── telegram_api.py   # Telegram notification service  
+│...├── __init__.py  
+│...├── youtube_api.py    # YouTube integration (video info, transcript extraction)  
+│...├── gemini_api.py     # AI summarization logic  
+│...├── blog_api.py       # Blog posting integration  
+│...└── telegram_api.py   # Telegram notification service  
 └── utils/  
-    ├── __init__.py  
-    └── db.py             # Database connectivity and helpers  
+....├── __init__.py  
+....└── db.py             # Database connectivity and helpers  

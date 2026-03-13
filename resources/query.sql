@@ -9,20 +9,20 @@ CREATE TABLE IF NOT EXISTS ys_channels (
 
 -- 2. 비디오 테이블 (이름을 명확히 정의)
 CREATE TABLE IF NOT EXISTS ys_videos (
-    id SERIAL PRIMARY KEY,
     channel_id TEXT,
-    video_id TEXT NOT NULL,
+    video_id TEXT PRIMARY KEY,
     title TEXT,
-    --summary TEXT,
+    description TEXT,
     is_posted BOOLEAN DEFAULT FALSE, 
     should_retry BOOLEAN DEFAULT FALSE, 
     error_message TEXT,
-    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
 -- 3. 코드(공통 코드) 테이블
 CREATE TABLE IF NOT EXISTS ys_codes (
-    code VARCHAR(24),
+    code VARCHAR(24) PRIMARY KEY,
     value TEXT NOT NULL,
     description TEXT,
     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
