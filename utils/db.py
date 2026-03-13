@@ -159,6 +159,7 @@ def upsert_videos(
             "title": title,
             "should_retry": should_retry,
             "updated_at": datetime.now(timezone.utc).isoformat(),
+            "description": description
         }
 
         if is_posted:
