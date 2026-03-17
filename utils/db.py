@@ -13,6 +13,7 @@ def get_supabase() -> Client:
     if _supabase is None:
         url = os.getenv("SUPABASE_URL")
         key = os.getenv("SUPABASE_KEY")
+        print(f"url : [{url}], key : [{key}]")
         if not url or not key:
             raise ValueError("SUPABASE_URL 또는 SUPABASE_KEY가 설정되지 않았습니다!")
         _supabase = create_client(url, key)
