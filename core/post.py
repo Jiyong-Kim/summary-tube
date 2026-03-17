@@ -63,12 +63,12 @@ def post_to_blog(title, content, source_url):
         blog_id = db.get_code("GOOGLE_BLOGGER_ID") 
         
         
-        formatted_content = f"{content}<br><hr><p>출처: <a href='{source_url}'>{source_url}</a></p>"
+        #formatted_content = f"{content}<br><hr><p>출처: <a href='{source_url}'>{source_url}</a></p>"
         
         post_body = {
             "kind": "blogger#post",
             "title": title,
-            "content": formatted_content,
+            "content": content,
             "labels": ["유튜브요약"]
         }
         result = service.posts().insert(blogId=blog_id, body=post_body).execute()
