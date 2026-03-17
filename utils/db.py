@@ -41,8 +41,7 @@ def get_code(code: str) -> Optional[str]:
         return None
 
     except Exception as e:
-        
-        logging.error(f"Supabase 조회 중 오류 발생: {e}")
+        logging.error(f"Supabase 조회 중 오류 발생: {e}", exc_info=True)
         return None
 
 
