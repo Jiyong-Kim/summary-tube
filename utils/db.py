@@ -34,10 +34,14 @@ def get_code(code: str) -> Optional[str]:
         # 데이터가 있는지 확인
         if response.data and len(response.data) > 0:
             _secrets_cache[code] = response.data[0].get("value")  # 캐시에 저장
+            logging.info( f"return getCode : {response.data[0].get("value")}" )
             return response.data[0].get("value")
+        
+        logging.info( "return getCode : None" )
         return None
 
     except Exception as e:
+        
         logging.error(f"Supabase 조회 중 오류 발생: {e}")
         return None
 
