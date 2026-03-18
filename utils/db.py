@@ -13,7 +13,6 @@ def get_supabase() -> Client:
     if _supabase is None:
         url = os.getenv("SUPABASE_URL")
         key = os.getenv("SUPABASE_KEY")
-        print(f"url : [{url}], key : [{key}]")
         if not url or not key:
             raise ValueError("SUPABASE_URL 또는 SUPABASE_KEY가 설정되지 않았습니다!")
         _supabase = create_client(url, key)
@@ -34,7 +33,6 @@ def get_code(code: str) -> Optional[str]:
         # 데이터가 있는지 확인
         if response.data and len(response.data) > 0:
             _secrets_cache[code] = response.data[0].get("value")  # 캐시에 저장
-            logging.info( f"return getCode : {response.data[0].get("value")}" )
             return response.data[0].get("value")
         
         logging.info( "return getCode : None" )
@@ -90,7 +88,7 @@ def update_channel_uploads_id(channel_id, uploads_id, channel_title):
 
         # 성공 여부 확인
         if response.data:
-            print(f"Successfully updated channel: {channel_id}")
+            logging.info(f"Successfully updated channel: {channel_id}")
         return response
     except Exception as e:
         logging.error(f"Failed to update channel {channel_id}: {e}")
